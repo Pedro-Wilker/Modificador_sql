@@ -62,7 +62,6 @@ def modificar_arquivo():
                             nova_linha = re.sub(rf"\b{re.escape(antigo)}\b", novo, nova_linha, flags=re.IGNORECASE)
                 arquivo_escrita.write(nova_linha)
 
-        # Renomear o arquivo temporário para o nome original
         import os
         os.replace(arquivo_sql + '.tmp', arquivo_sql)
 
@@ -82,28 +81,26 @@ def modificar_arquivo():
 janela = tk.Tk()
 janela.title("Modificador de Colunas SQL com JSON")
 
-# Widget para entrada do caminho do arquivo SQL
+
 entrada_arquivo = tk.Entry(janela, width=50)
 entrada_arquivo.pack(pady=10)
 tk.Button(janela, text="Selecionar Arquivo SQL", command=selecionar_arquivo).pack(pady=5)
 
-# Widget para entrada do caminho do arquivo JSON
+
 entrada_json = tk.Entry(janela, width=50)
 entrada_json.pack(pady=10)
 tk.Button(janela, text="Selecionar Arquivo JSON", command=selecionar_json).pack(pady=5)
 
-# Label para mostrar dados do JSON
 dados_json = tk.StringVar()
 tk.Label(janela, text="Dados do JSON:").pack(pady=5)
 tk.Label(janela, textvariable=dados_json, wraplength=400, justify=tk.LEFT).pack(pady=5)
 
-# Botão para modificar o arquivo
+
 botao_modificar = tk.Button(janela, text="Modificar Arquivo", command=modificar_arquivo)
 botao_modificar.pack(pady=5)
 
-# Label para mostrar resultado
+
 resultado_label = tk.Label(janela, text="")
 resultado_label.pack(pady=10)
 
-# Iniciar loop da interface
 janela.mainloop()

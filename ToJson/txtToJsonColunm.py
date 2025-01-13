@@ -9,7 +9,7 @@ def transformar_txt_em_json(arquivo_txt, arquivo_json):
 
         tabelas = []
         for i in range(0, len(linhas), 2):
-            if i + 1 < len(linhas):  # Verifica se existe um par para a linha atual
+            if i + 1 < len(linhas):  
                 antiga = linhas[i].split('|')[-1].strip()
                 nova = linhas[i + 1].split('|')[-1].strip()
                 tabela = {

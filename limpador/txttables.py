@@ -7,7 +7,6 @@ def limpar_txt(arquivo_txt, arquivo_txt_limpo):
         with open(arquivo_txt, 'r') as f:
             linhas = f.readlines()
 
-        # Filtrar linhas indesejadas
         linhas_filtradas = []
         for linha in linhas:
             linha_strip = linha.strip()
